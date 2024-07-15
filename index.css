@@ -11,6 +11,8 @@
   --l1: 40%;
   --l2: 44%;
   --l3: 55%;
+  --darker: hsl(202deg 85% 28%);
+  --lighter: hsl(202deg 75% 60%);
   --blue: hsl(202deg 90% 40%);
 }
 *,
@@ -30,31 +32,143 @@ body {
   line-height: inherit;
   margin: 0;
 }
-
 header {
   padding: 2rem 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
 }
 #x-logo-icon {
-  width: 6rem;
-  height: 6rem;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
 }
 h1 {
-  font-size: 6rem;
+  font-size: 3.5rem;
   font-weight: 500;
   letter-spacing: -2px;
-  margin: 0;
   line-height: 1.25;
 }
 h1 > span.blue {
-  margin-right: -1rem;
+  margin-right: -0.5rem;
+}
+@media (width > 22.5rem) {
+  h1 {
+    font-size: 4rem;
+  }
+  #x-logo-icon {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+@media (width > 28.5rem) {
+  h1 {
+    font-size: 5rem;
+  }
+  #x-logo-icon {
+    width: 5rem;
+    height: 5rem;
+  }
+  h1 > span.blue {
+    margin-right: -1rem;
+  }
+}
+@media (width > 33.75rem) {
+  h1 {
+    font-size: 6rem;
+  }
+  #x-logo-icon {
+    width: 6rem;
+    height: 6rem;
+  }
 }
 .blue {
   color: var(--blue);
 }
-
+article {
+  padding: 1rem;
+  margin: auto;
+  max-width: 35rem;
+}
+.contact-inner {
+  padding: 1rem;
+  background-color: var(--bg);
+}
+@media (width > 36.5rem) {
+  #contact {
+    padding: 2rem 0;
+    background-color: #fff;
+  }
+  .contact-inner {
+    max-width: 35rem;
+    margin: auto;
+    padding: 1.25rem 1.5rem;
+    border-radius: 1rem;
+  }
+}
+.contact-header {
+  text-align: center;
+}
+.contact-header h2 {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+footer {
+  background-color: var(--darker);
+}
+nav {
+  padding: 1rem 2rem;
+  margin: auto;
+  max-width: 46rem;
+}
+nav a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem;
+  margin: 1.5rem 0.5rem;
+}
+nav a p {
+  letter-spacing: 0.5px;
+  font-weight: 300;
+}
+nav a .lucide {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+nav a p strong {
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+@media (width >= 28rem) {
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+}
+@media (width > 34rem) {
+  nav {
+    padding: 2rem 1rem;
+    justify-content: space-around;
+  }
+}
+h2 {
+  font-size: 1.75rem;
+  font-weight: 300;
+}
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
 button,
 input,
 textarea {
@@ -87,30 +201,29 @@ textarea {
   cursor: pointer;
   background-image: none;
   margin: 1rem auto;
-  color: hsl(216deg 60% 15%);
-  border: 0.125rem solid hsl(216deg 75% 25% / 95%);
-  background-color: hsl(216deg 60% 75% / 20%);
-  box-shadow: 0 0 0.25rem 0.25rem hsl(216deg 75% 5% / 4%);
+  color: hsl(202deg 50% 10%);
+  border: 0.125rem solid hsl(202deg 60% 30%);
+  background-color: hsl(202deg 60% 96%);
+  box-shadow: 0 0 0.25rem 0.25rem hsl(202deg 75% 5% / 2%);
   opacity: 0.96;
 }
 .btn:hover,
 .btn:focus {
+  color: hsl(202deg 50% 5%);
   text-decoration: none;
   opacity: 1;
 }
 .btn:hover {
   transform: scale(1.025);
-  border-color: hsl(216deg 85% 25%);
-  background-color: hsl(208deg 60% 50%);
-  background-color: hsl(216deg 75% 71% / 25%);
-  background-color: hsl(209deg 60% 70% / 25%);
-  box-shadow: 0 0 0.375rem 0.375rem hsl(216deg 75% 5% / 6%);
+  border-color: hsl(202deg 85% 25%);
+  background-color: hsl(202deg 60% 94%);
+  box-shadow: 0 0 0.375rem 0.375rem hsl(202deg 75% 5% / 6%);
 }
 .btn:focus {
   transform: scale(1.01);
-  border-color: hsl(216deg 85% 25%);
-  background-color: hsl(209deg 64% 64% / 15%);
-  box-shadow: 0 0 0.25rem 0.25rem hsl(216deg 75% 5% / 4%);
+  border-color: hsl(202deg 85% 25%);
+  background-color: hsl(202deg 60% 93%);
+  box-shadow: 0 0 0.25rem 0.25rem hsl(202deg 75% 5% / 4%);
 }
 input::placeholder {
   opacity: 0.7;
@@ -118,7 +231,7 @@ input::placeholder {
 }
 label {
   display: block;
-  color: hsl(208deg 85% 20%);
+  color: hsl(202deg 80% 15%);
   font-weight: 600;
   font-size: 1.125rem;
   padding: 0.5rem 0 0.25rem;
@@ -129,8 +242,8 @@ input,
 textarea {
   display: block;
   padding: 0.5rem;
-  background-color: hsl(208deg 60% 96% / 80%);
-  border: 0.125rem solid hsl(208deg 50% 25% / 90%);
+  border: 0.125rem solid hsl(202deg 50% 25%);
+  background-color: hsl(202deg 40% 99%);
   border-radius: 0.375rem;
   outline: none;
   width: 100%;
@@ -145,13 +258,13 @@ textarea {
 }
 input:hover,
 textarea:hover {
-  background-color: hsl(208deg 60% 98%);
-  border-color: hsl(208deg 50% 15%);
+  background-color: hsl(202deg 60% 98%);
+  border-color: hsl(202deg 50% 15%);
 }
 input:focus,
 textarea:focus {
-  background-color: hsl(208deg 95% 99%);
-  border-color: hsl(208deg 75% 50%);
+  background-color: hsl(202deg 95% 99%);
+  border-color: hsl(202deg 80% 40%);
 }
 input:valid {
   border-color: hsl(180deg 100% 30%);
@@ -177,7 +290,7 @@ input:valid {
   margin: 2rem auto;
   width: 4rem;
   height: 4rem;
-  border: 0.25rem solid hsl(208deg 75% 25%);
+  border: 0.25rem solid var(--theme);
   border-top: 0.25rem solid #eee;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -189,4 +302,9 @@ input:valid {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
 }
