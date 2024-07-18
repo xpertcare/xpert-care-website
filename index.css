@@ -46,6 +46,7 @@ header {
 h1,
 h2,
 h3,
+h4,
 p {
   margin: 0;
 }
@@ -95,6 +96,12 @@ article {
   padding: 1rem;
   margin: auto;
   max-width: 35rem;
+}
+article p,
+h2,
+h3,
+h4 {
+  margin: 0.5rem 0;
 }
 .contact-inner {
   padding: 1rem;
