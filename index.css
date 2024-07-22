@@ -1,8 +1,4 @@
 :root {
-  --font-family: ui-sans-serif, system-ui, -apple-system, "BlinkMacSystemFont",
-    "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", sans-serif;
-  --bg: #f7f9fc;
-  --fg: #0e0e0e;
   --hue: 202deg;
   --theme: hsl(202deg 80% 40%);
   --sat1: 70%;
@@ -14,34 +10,31 @@
   --darker: hsl(202deg 85% 28%);
   --lighter: hsl(202deg 75% 60%);
   --blue: hsl(202deg 90% 40%);
-}
-*,
-::before,
-::after {
-  box-sizing: border-box;
-}
-html {
-  background-color: var(--bg);
-  font-family: var(--font-family);
-  line-height: 1.5;
-  scroll-behavior: smooth;
-}
-body {
-  background-color: var(--bg);
-  color: var(--fg);
-  line-height: inherit;
-  margin: 0;
+  --rad-grad: radial-gradient(
+    circle 85vmin at center,
+    hsl(202deg 85% 25% / 50%),
+    hsl(202deg 80% 60% / 50%),
+    hsl(202deg 80% 25% / 50%)
+  );
+  --intro-grad: linear-gradient(
+    130deg,
+    hsl(202deg 75% 60% / 75%),
+    hsl(202deg 80% 40% / 75%),
+    hsl(202deg 85% 28% / 75%),
+    hsl(202deg 30% 10% / 75%)
+  );
+  --clip-polygon: polygon(0 0, 20% 100%, 100% 100%, 80% 0);
 }
 header {
-  padding: 2rem 0.5rem;
+  padding: 8vmin 0.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #fff;
 }
 #x-logo-icon {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 16vmin;
+  height: 16vmin;
 }
 h1,
 h2,
@@ -51,80 +44,234 @@ p {
   margin: 0;
 }
 h1 {
-  font-size: 3.5rem;
+  font-size: 16vmin;
   font-weight: 500;
   letter-spacing: -2px;
   line-height: 1.25;
 }
 h1 > span.blue {
-  margin-right: -0.5rem;
-}
-@media (width > 22.5rem) {
-  h1 {
-    font-size: 4rem;
-  }
-  #x-logo-icon {
-    width: 4rem;
-    height: 4rem;
-  }
-}
-@media (width > 28.5rem) {
-  h1 {
-    font-size: 5rem;
-  }
-  #x-logo-icon {
-    width: 5rem;
-    height: 5rem;
-  }
-  h1 > span.blue {
-    margin-right: -1rem;
-  }
-}
-@media (width > 33.75rem) {
-  h1 {
-    font-size: 6rem;
-  }
-  #x-logo-icon {
-    width: 6rem;
-    height: 6rem;
-  }
+  margin-right: -2.5vmin;
 }
 .blue {
   color: var(--blue);
 }
-article {
-  padding: 1rem;
-  margin: auto;
-  max-width: 35rem;
+#intro {
+  /* background: linear-gradient(#fff, #fff 50%, transparent 50%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--intro-grad);
+  text-shadow: 0 0 0.625rem hsl(202deg 5% 5% / 80%);
+}
+.intro-inner {
+  color: #f8f9fa;
+  padding: 5vmin;
+}
+@media (width > 38rem) {
+  #intro {
+    background: var(--intro-grad), url("./photos/cooking-2.avif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5vmin 0;
+  }
+  .intro-inner {
+    max-width: 36rem;
+    margin: auto;
+    border-radius: 2vmin;
+    font-size: 1.125rem;
+    padding: 2rem 2.75rem 2.125rem;
+    background-color: hsl(202deg 25% 10% / 10%);
+    box-shadow: 0 0 0.25rem 0.25rem hsl(202deg 10% 99% / 6%);
+    backdrop-filter: blur(0.5px);
+    /* border-radius: 5vmin; */
+    /* font-size: 1.125rem; */
+    /* padding: 2.5rem 2.75rem; */
+    /* background-color: hsl(202deg 20% 60% / 10%); */
+    /* box-shadow: 0 0 0.25rem 0.25rem hsl(202deg 10% 9% / 10%); */
+  }
 }
 article p,
 h2,
-h3,
 h4 {
   margin: 0.5rem 0;
 }
-.contact-inner {
+h2 {
+  font-size: 1.75rem;
+  font-weight: 300;
+}
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.services-heading {
+  background: radial-gradient(
+      circle 85vmin at center,
+      hsl(202deg 85% 20% / 60%),
+      hsl(202deg 80% 70% / 50%),
+      hsl(202deg 80% 90% / 60%)
+    ),
+    url("./photos/couch.avif");
+}
+.support-heading {
+  background: var(--rad-grad), url("./photos/cooking-1.avif");
+}
+.approach-heading {
+  background: var(--rad-grad), url("./photos/dinner-1.avif");
+}
+.section-heading {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20vmin 0;
+}
+.heading-title {
+  border: 0.25rem solid hsl(202deg 100% 52%);
+  border-left: none;
+  border-right: none;
+  max-width: 12rem;
+  margin: 0 auto;
   padding: 1rem;
-  background-color: var(--bg);
+  color: #fff;
+  text-shadow: 0 0 0.625rem hsl(202deg 5% 5% / 80%);
+  backdrop-filter: blur(1px);
+}
+.heading-title h2 {
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+.text {
+  padding: 2.5rem 1rem;
+  margin: auto;
+  max-width: 44rem;
+}
+.photo {
+  position: relative;
+}
+.photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: hsl(202deg 80% 65% / 40%);
+  clip-path: var(--clip-polygon);
+  z-index: 1;
+}
+.img {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  clip-path: var(--clip-polygon);
+}
+#support .img,
+#support .photo::after {
+  clip-path: polygon(20% 0%, 0% 100%, 80% 100%, 100% 0);
+}
+ul {
+  list-style-image: none;
+  list-style-position: outside;
+  margin: 0 0 1.45rem 1.45rem;
+  padding: 0;
+}
+ul li {
+  padding-left: 0;
+  margin-bottom: 2px;
+}
+#location {
+  padding: 4rem 0;
+  background: linear-gradient(#fff3, transparent, hsl(202deg 80% 40% / 30%)),
+    radial-gradient(hsl(202deg 80% 40% / 30%), transparent, #fff3),
+    url("./treasure-valley.avif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.locations {
+  margin: auto;
+  background-color: hsl(202deg 10% 99% / 80%);
+  width: 21rem;
+  height: 21rem;
+  max-width: 100vmin;
+  max-height: 100vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 2rem;
+  text-align: center;
+  border: 0.25rem solid hsl(202deg 20% 99% / 90%);
+  box-shadow: 0 0 0.25rem 0.25rem hsl(202deg 10% 9% / 8%);
+  backdrop-filter: blur(1px);
+}
+.locations h2 {
+  margin: 0.25rem 0 0.75rem;
+  line-height: 1.15;
+}
+.location-lists {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin-top: 0.75rem;
+}
+.location-lists ul {
+  margin-right: 0.5rem;
+}
+.contact-inner {
+  padding: 3rem 1rem;
+  /* background-color: var(--bg); */
+  background-color: hsl(202deg 10% 99% / 70%);
+  backdrop-filter: blur(0.5px);
+}
+#contact {
+  padding: 0;
+  /* url("./icon.svg") 15vmin 13vmin / 24vmin repeat, */
+  background: var(--rad-grad), url("./photos/computer-1.avif");
+  /* background-position: 15vmin 13vmin; */
+  /* background-size: 24vmin; */
+  /*  center / cover no-repeat */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 @media (width > 36.5rem) {
   #contact {
-    padding: 2rem 0;
-    background-color: #fff;
+    padding: 4rem 0;
   }
   .contact-inner {
     max-width: 35rem;
     margin: auto;
     padding: 1.25rem 1.5rem;
     border-radius: 1rem;
+    box-shadow: 0 0 0.25rem 0.25rem hsl(202deg 10% 9% / 8%);
   }
 }
 .contact-header {
   text-align: center;
 }
-.contact-header h2 {
+.inner h2 {
   font-weight: 600;
   letter-spacing: 0.5px;
+}
+.prompt {
+  line-height: 1.15;
+  opacity: 0.9;
+}
+@media (width < 32rem) {
+  .prompt {
+    max-width: 17rem;
+    margin: auto;
+  }
 }
 footer {
   background-color: var(--darker);
@@ -167,14 +314,6 @@ nav a p strong {
     padding: 2rem 1rem;
     justify-content: space-around;
   }
-}
-h2 {
-  font-size: 1.75rem;
-  font-weight: 300;
-}
-h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
 }
 button,
 input,
