@@ -42,3 +42,19 @@ form.addEventListener("submit", (e) => {
   });
   return false;
 });
+
+const servicesSection = getEl("services");
+const stickyPoint =
+  servicesSection.getBoundingClientRect().top + window.scrollY - 64;
+const nav = getEl("nav");
+const logo = getEl("nav-logo");
+function checkScroll() {
+  const curr = window.scrollY;
+  if (curr > stickyPoint) {
+    nav.classList.add("sticky");
+  } else {
+    nav.classList.remove("sticky");
+  }
+}
+window.addEventListener("scroll", checkScroll);
+checkScroll();
